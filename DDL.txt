@@ -1,0 +1,22 @@
+CREATE TABLE Customer (
+	customer_ID VARCHAR(30)  PRIMARY KEY,
+	customer_name VARCHAR(30) NOT NULL,
+	customer_Tel NUMBER ,
+);
+
+CREATE TABLE Product (
+	Product_ID VARCHAR(30)  PRIMARY KEY,
+	Product_name VARCHAR(30) NOT NULL,
+	Product_Price NUMBER CHECK (Product_Price>0),
+);
+
+CREATE TABLE Orders (
+	customer_ID VARCHAR(30)  FOREIGN KEY,
+	Product_ID VARCHAR(30) FOREIGN KEY,
+	Orders_quantity NUMBER ,
+    Total_amount NUMBER 
+);
+
+Alter Table Product ADD Category (VARCHAR2(20));
+
+Alter Table Orders ADD OrderDate (DATE) ADD CONSTRAINT default_date DEFAULT TIMESTAMP;
